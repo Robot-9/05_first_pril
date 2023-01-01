@@ -2,6 +2,7 @@ package app;
 
 import io.github.humbleui.jwm.*;
 
+import java.io.File;
 import java.util.function.Consumer;
 
 public class Application implements Consumer<Event> {
@@ -15,6 +16,15 @@ public class Application implements Consumer<Event> {
         window.setTitle("Java 2D");
         window.setWindowSize(900, 900);
         window.setWindowPosition(100, 100);
+
+        switch (Platform.CURRENT) {
+            case WINDOWS -> window.setIcon(new File("src/main/resources/windows.ico"));
+            case MACOS -> window.setIcon(new File("src/main/resources/macos.icns"));
+        }
+
+        String[] layerNames = new String[] {
+                "LayerGLSkija", "LayerRasterSkija"
+        };
     }
 
     @Override
