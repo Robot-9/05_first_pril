@@ -1,5 +1,6 @@
 package app;
 
+import controls.Label;
 import io.github.humbleui.jwm.*;
 import io.github.humbleui.jwm.skija.EventFrameSkija;
 import io.github.humbleui.skija.Canvas;
@@ -13,14 +14,18 @@ import java.io.File;
 import java.util.function.Consumer;
 
 import static app.Colors.APP_BACKGROUND_COLOR;
+import static app.Colors.PANEL_BACKGROUND_COLOR;
 
 
 public class Application implements Consumer<Event> {
     private final Window window;
     public static final int C_RAD_IN_PX = 4;
+    public static final int PANEL_PADDING = 5;
+    private final Label label;
 
     public Application() {
         window = App.makeWindow();
+        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!");
         window.setEventListener(this);
 
         window.setTitle("Java 2D");
@@ -70,9 +75,10 @@ public class Application implements Consumer<Event> {
     public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
         canvas.save();
         canvas.clear(APP_BACKGROUND_COLOR);
-        Paint paint = new Paint();
-        paint.setColor(Misc.getColor(100, 255, 255, 255));
-        canvas.drawRRect(windowCS.getRRect(4), paint);
+//        Paint paint = new Paint();
+//        paint.setColor(Misc.getColor(100, 255, 255, 255));
+//        canvas.drawRRect(windowCS.getRRect(4), paint);
+        label.paint(canvas, new CoordinateSystem2i(100, 100, 200, 200));
         canvas.restore();
     }
 }
