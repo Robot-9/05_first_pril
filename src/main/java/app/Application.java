@@ -7,6 +7,8 @@ import io.github.humbleui.skija.Surface;
 import java.io.File;
 import java.util.function.Consumer;
 
+import static app.Colors.APP_BACKGROUND_COLOR;
+
 public class Application implements Consumer<Event> {
     private final Window window;
 
@@ -52,7 +54,7 @@ public class Application implements Consumer<Event> {
             window.close();
         } else if (e instanceof EventFrameSkija ee) {
             Surface s = ee.getSurface();
-            s.getCanvas().clear(0xFF264653);
+            s.getCanvas().clear(APP_BACKGROUND_COLOR);
         }
     }
 }
