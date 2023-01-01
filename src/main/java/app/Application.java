@@ -14,8 +14,10 @@ import java.util.function.Consumer;
 
 import static app.Colors.APP_BACKGROUND_COLOR;
 
+
 public class Application implements Consumer<Event> {
     private final Window window;
+    public static final int C_RAD_IN_PX = 4;
 
     public Application() {
         window = App.makeWindow();
