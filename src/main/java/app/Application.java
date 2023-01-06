@@ -25,7 +25,7 @@ public class Application implements Consumer<Event> {
 
     public Application() {
         window = App.makeWindow();
-        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!");
+        label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!", true, true);
         window.setEventListener(this);
 
         window.setTitle("Java 2D");
@@ -75,9 +75,6 @@ public class Application implements Consumer<Event> {
     public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
         canvas.save();
         canvas.clear(APP_BACKGROUND_COLOR);
-//        Paint paint = new Paint();
-//        paint.setColor(Misc.getColor(100, 255, 255, 255));
-//        canvas.drawRRect(windowCS.getRRect(4), paint);
         label.paint(canvas, new CoordinateSystem2i(100, 100, 200, 200));
         canvas.restore();
     }
