@@ -16,6 +16,7 @@ public abstract class Panel implements Consumer<Event> {
     private final boolean drawBG;
     protected final int backgroundColor;
 
+
     public Panel(Window window, boolean drawBG, int backgroundColor, int padding) {
         this.window = window;
         this.drawBG = drawBG;
